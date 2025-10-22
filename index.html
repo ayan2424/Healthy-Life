@@ -1,71 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healthy Mind - Aerobics & Meditation</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- AOS (Animate on Scroll) CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
+        /* Define color palettes using CSS variables */
+        :root, [data-bs-theme="light"] {
+            --bs-primary: #10B981; /* Emerald 500 */
+            --bs-primary-rgb: 16, 185, 129;
+            --bs-primary-hover: #059669; /* Emerald 600 */
+            --bs-body-bg: #f9fafb; /* Gray 50 */
+            --bs-body-color: #111827; /* Gray 900 */
+            --bs-secondary-bg: #ffffff; /* White */
+            --bs-tertiary-bg: #f3f4f6; /* Gray 100 */
+            --bs-border-color: #e5e7eb; /* Gray 200 */
+            --bs-secondary-color: #4b5563; /* Gray 600 */
+        }
+
+        [data-bs-theme="dark"] {
+            --bs-primary: #34D399; /* Emerald 400 */
+            --bs-primary-rgb: 52, 211, 153;
+            --bs-primary-hover: #6EE7B7; /* Emerald 300 */
+            --bs-body-bg: #111827; /* Gray 900 */
+            --bs-body-color: #d1d5db; /* Gray 300 */
+            --bs-secondary-bg: #1f2937; /* Gray 800 */
+            --bs-tertiary-bg: #374151; /* Gray 700 */
+            --bs-border-color: #4b5563; /* Gray 600 */
+            --bs-secondary-color: #9ca3af; /* Gray 400 */
+        }
+
         body {
             font-family: 'Inter', sans-serif;
+            background-color: var(--bs-body-bg);
+            color: var(--bs-body-color);
         }
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 70px; /* Adjust for fixed navbar height */
+            scroll-padding-top: 70px;
+        }
+        .navbar {
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
         .navbar-brand {
             font-weight: bold;
         }
-        .btn-teal {
-            background-color: #14B8A6; /* teal-500 */
-            border-color: #14B8A6;
+        .btn-primary {
+            background-color: var(--bs-primary);
+            border-color: var(--bs-primary);
             color: white;
+            transition: all 0.3s ease;
         }
-        .btn-teal:hover {
-            background-color: #0F766E; /* teal-600 */
-            border-color: #0F766E;
-            color: white;
+        .btn-primary:hover {
+            background-color: var(--bs-primary-hover);
+            border-color: var(--bs-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(var(--bs-primary-rgb), 0.2);
         }
-        .text-teal {
-            color: #14B8A6 !important;
-        }
-        .bg-light-teal {
-            background-color: #F0FDFA; /* teal-50 */
-        }
+        .text-primary { color: var(--bs-primary) !important; }
+        .text-secondary { color: var(--bs-secondary-color) !important; }
+        .bg-body-secondary { background-color: var(--bs-secondary-bg) !important; }
+        .bg-body-tertiary { background-color: var(--bs-tertiary-bg) !important; }
         .card {
-            transition: box-shadow .3s;
+            transition: transform .3s ease, box-shadow .3s ease;
+            border: 1px solid var(--bs-border-color);
+            border-radius: 0.75rem;
+            background-color: var(--bs-secondary-bg);
         }
         .card:hover {
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+            transform: translateY(-10px);
+            box-shadow: 0 1rem 2rem rgba(0,0,0,.1)!important;
         }
+        
+        /* New Hero Carousel Styles */
+        .carousel-item { height: 95vh; min-height: 450px; background: no-repeat center center scroll; background-size: cover; position: relative; }
+        
+        .carousel-caption { 
+            bottom: 0; 
+            left: 0 !important; 
+            right: 0 !important; 
+            top: 0;
+            text-align: left !important; 
+            z-index: 10; 
+            display: flex;
+            align-items: center;
+            padding: 0;
+            max-width: 100%;
+        }
+        
+        .carousel-caption-content {
+            max-width: 600px;
+            margin-left: 10%;
+            padding: 2.5rem;
+            background: rgba(0,0,0,0.4);
+            border-radius: 0.75rem;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* 3D-like Animation for the caption box */
+        .carousel-item .carousel-caption-content {
+            opacity: 0;
+            transform: translateY(50px) perspective(500px) rotateX(10deg);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transition-delay: 0.4s;
+        }
+        
+        .carousel-item.active .carousel-caption-content {
+            opacity: 1;
+            transform: translateY(0) perspective(500px) rotateX(0);
+        }
+
+        .hero-heading {
+            font-family: 'Playfair Display', serif;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive font size */
+            font-weight: 700;
+        }
+        .hero-subheading {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+        }
+        /* End New Hero Carousel Styles */
+
+        #backToTopBtn { position: fixed; bottom: 30px; right: 30px; display: none; z-index: 1030; width: 50px; height: 50px; font-size: 1.2rem; }
+        .list-group-item { background-color: transparent; border-color: var(--bs-border-color); }
+        
+        /* New Testimonial Carousel Styles */
+        .testimonial-carousel .carousel-indicators { bottom: -20px; }
+        .testimonial-carousel .carousel-indicators button { background-color: var(--bs-primary); }
+        .testimonial-card {
+            background-color: var(--bs-secondary-bg);
+            border: 1px solid var(--bs-border-color);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .testimonial-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        .star-rating .bi {
+            color: #FFC107; /* Bootstrap 'warning' yellow */
+        }
+        /* End New Testimonial Styles */
+
+        /* Accordion Customization */
+        .accordion-button { color: var(--bs-body-color); }
+        .accordion-button:not(.collapsed) { background-color: rgba(var(--bs-primary-rgb), 0.1); color: var(--bs-primary); }
+        .accordion-button:focus { box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25); }
     </style>
 </head>
-<body class="bg-light">
+<body>
 
     <!-- Header & Navigation -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <nav class="navbar navbar-expand-lg bg-body-secondary shadow-sm fixed-top">
             <div class="container px-4">
                 <a class="navbar-brand fs-4" href="#home">
-                    <svg class="d-inline-block align-text-top text-teal" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                    <svg class="d-inline-block align-text-top text-primary" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><path d="M12 4c-2.32 0-4.39 1.03-5.83 2.65.23-.09.47-.15.73-.15 2.21 0 4 1.79 4 4 0 .39-.06.77-.16 1.13.91-1.35 2.43-2.28 4.26-2.28 2.76 0 5 2.24 5 5s-2.24 5-5 5c-1.83 0-3.35-.93-4.26-2.28-.1.36-.16.74-.16 1.13 0 2.21-1.79 4-4 4-.26 0-.5-.06-.73-.15C7.61 18.97 9.68 20 12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8z"/></svg>
                     Healthy Mind
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#home">Home</a>
-                        </li>
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#poses" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Poses
-                            </a>
+                            <a class="nav-link dropdown-toggle" href="#poses" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Poses</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#poses-type">By Type</a></li>
                                 <li><a class="dropdown-item" href="#poses-benefit">By Benefit</a></li>
@@ -73,14 +185,12 @@
                                 <li><a class="dropdown-item" href="#poses-general">General</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#courses">Courses</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#meditation">Meditation</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#books">Books</a>
+                        <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#meditation">Meditation</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#books">Books</a></li>
+                        <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                           <button id="theme-toggle" class="btn btn-outline-secondary rounded-circle" style="width: 40px; height: 40px; line-height: 0;"><i class="bi bi-sun-fill"></i></button>
                         </li>
                     </ul>
                 </div>
@@ -89,14 +199,55 @@
     </header>
 
     <main>
-        <!-- Home Section -->
-        <section id="home" class="position-relative bg-white" style="padding-top: 70px;">
-            <div class="container text-center py-5">
-                <div class="position-absolute top-0 start-0 w-100 h-100 bg-cover bg-center opacity-25" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2120&auto=format&fit=crop');"></div>
-                <div class="position-relative z-1">
-                    <h1 class="display-4 fw-bold text-dark">Find Your Balance.</h1>
-                    <p class="lead text-secondary col-lg-8 mx-auto">Discover the transformative power of aerobics and meditation for a healthier body and a calmer mind.</p>
-                    <a href="#poses" class="btn btn-teal btn-lg mt-3 px-4">Explore Poses</a>
+        <!-- Home Section with Carousel -->
+        <section id="home">
+            <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1571902943202-507ec2618-8f?q=80&w=1975&auto=format&fit=crop');">
+                        <div class="carousel-caption">
+                            <div class="carousel-caption-content">
+                                <h1 class="hero-heading text-white">Energize Your Body</h1>
+                                <p class="hero-subheading text-white-50 my-3">Discover high-intensity aerobic workouts to boost your cardiovascular health.</p>
+                                <a href="#poses" class="btn btn-primary btn-lg mt-3 px-4">Explore Workouts</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1999&auto=format&fit=crop');">
+                        <div class="carousel-caption">
+                            <div class="carousel-caption-content">
+                                <h1 class="hero-heading text-white">Calm Your Mind</h1>
+                                <p class="hero-subheading text-white-50 my-3">Find peace and clarity with our guided meditation sessions.</p>
+                                <a href="#meditation" class="btn btn-primary btn-lg mt-3 px-4">Start Meditating</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2120&auto=format&fit=crop');">
+                         <div class="carousel-caption">
+                            <div class="carousel-caption-content">
+                                <h1 class="hero-heading text-white">Find Your Balance</h1>
+                                <p class="hero-subheading text-white-50 my-3">Achieve harmony between body and mind through a holistic approach to wellness.</p>
+                                <a href="#courses" class="btn btn-primary btn-lg mt-3 px-4">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-5 bg-body-secondary">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up"><h2 class="fw-bold display-4 text-primary"><span class="counter">50</span>+</h2><p class="text-secondary fs-5">Aerobic Poses</p></div>
+                    <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="200"><h2 class="fw-bold display-4 text-primary"><span class="counter">12</span></h2><p class="text-secondary fs-5">Specialized Courses</p></div>
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="400"><h2 class="fw-bold display-4 text-primary"><span class="counter">1000</span>+</h2><p class="text-secondary fs-5">Happy Members</p></div>
                 </div>
             </div>
         </section>
@@ -104,150 +255,38 @@
         <!-- Poses Section -->
         <section id="poses" class="py-5">
             <div class="container px-4">
-                <div class="text-center mb-5">
-                    <h2 class="fw-bold">Aerobic Postures</h2>
-                    <p class="text-secondary">Find the right postures for your specific needs.</p>
-                </div>
-                
-                <!-- Poses by Type -->
+                <div class="text-center mb-5" data-aos="fade-up"><h2 class="fw-bold">Aerobic Postures</h2><p class="text-secondary fs-5">Find the right postures for your specific needs.</p></div>
                 <div id="poses-type" class="mb-5">
-                    <h3 class="fw-semibold mb-4">Poses by Type</h3>
+                    <h3 class="fw-semibold mb-4" data-aos="fade-right">Poses by Type</h3>
                     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop" class="card-img-top" alt="Woman doing cardio" style="height: 200px; object-fit: cover;" onerror="this.onerror=null;this.src='https://placehold.co/400x250/81E6D9/2D3748?text=Cardio+Blast';">
-                                <div class="card-body">
-                                    <h4 class="card-title fw-bold">Cardio Blast</h4>
-                                    <p class="card-text text-secondary">High-intensity moves to elevate your heart rate and improve cardiovascular health.</p>
-                                    <h5 class="fw-semibold fs-6">Do's:</h5>
-                                    <ul class="list-unstyled text-secondary small"><li>✓ Maintain a steady pace.</li><li>✓ Keep your core engaged.</li></ul>
-                                    <h5 class="fw-semibold fs-6 mt-2">Don'ts:</h5>
-                                    <ul class="list-unstyled text-secondary small"><li>✗ Don't hold your breath.</li><li>✗ Avoid locking your knees.</li></ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=2069&auto=format&fit=crop" class="card-img-top" alt="Man doing strength training" style="height: 200px; object-fit: cover;" onerror="this.onerror=null;this.src='https://placehold.co/400x250/F6AD55/2D3748?text=Strength+Training';">
-                                <div class="card-body">
-                                    <h4 class="card-title fw-bold">Strength & Sculpt</h4>
-                                    <p class="card-text text-secondary">Poses designed to build muscle, increase bone density, and improve overall strength.</p>
-                                    <h5 class="fw-semibold fs-6">Do's:</h5>
-                                    <ul class="list-unstyled text-secondary small"><li>✓ Focus on proper form.</li><li>✓ Use controlled movements.</li></ul>
-                                    <h5 class="fw-semibold fs-6 mt-2">Don'ts:</h5>
-                                    <ul class="list-unstyled text-secondary small"><li>✗ Don't use momentum to lift.</li><li>✗ Avoid arching your back.</li></ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <img src="https://images.unsplash.com/photo-1562771242-a02d9090c90c?q=80&w=2071&auto=format&fit=crop" class="card-img-top" alt="Woman stretching for flexibility" style="height: 200px; object-fit: cover;" onerror="this.onerror=null;this.src='https://placehold.co/400x250/68D391/2D3748?text=Flexibility+Flow';">
-                                <div class="card-body">
-                                    <h4 class="card-title fw-bold">Flexibility Flow</h4>
-                                    <p class="card-text text-secondary">Stretches and movements to increase your range of motion and reduce muscle tension.</p>
-                                    <h5 class="fw-semibold fs-6">Do's:</h5>
-                                    <ul class="list-unstyled text-secondary small"><li>✓ Breathe deeply into stretches.</li><li>✓ Move slowly and gently.</li></ul>
-                                    <h5 class="fw-semibold fs-6 mt-2">Don'ts:</h5>
-                                    <ul class="list-unstyled text-secondary small"><li>✗ Don't bounce in stretches.</li><li>✗ Avoid pushing past your limit.</li></ul>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="col" data-aos="fade-up" data-aos-delay="100"><div class="card h-100"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop" class="card-img-top" alt="Cardio Blast" style="height: 200px; object-fit: cover;"><div class="card-body"><h4 class="card-title fw-bold">Cardio Blast</h4><p class="card-text text-secondary">High-intensity moves to elevate your heart rate.</p></div></div></div>
+                        <div class="col" data-aos="fade-up" data-aos-delay="200"><div class="card h-100"><img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=2069&auto=format&fit=crop" class="card-img-top" alt="Strength & Sculpt" style="height: 200px; object-fit: cover;"><div class="card-body"><h4 class="card-title fw-bold">Strength & Sculpt</h4><p class="card-text text-secondary">Poses designed to build muscle and increase strength.</p></div></div></div>
+                        <div class="col" data-aos="fade-up" data-aos-delay="300"><div class="card h-100"><img src="https://images.unsplash.com/photo-1562771242-a02d9090c90c?q=80&w=2071&auto=format&fit=crop" class="card-img-top" alt="Flexibility Flow" style="height: 200px; object-fit: cover;"><div class="card-body"><h4 class="card-title fw-bold">Flexibility Flow</h4><p class="card-text text-secondary">Stretches to increase your range of motion.</p></div></div></div>
                     </div>
                 </div>
-
-                <!-- Poses by Benefit -->
                 <div id="poses-benefit" class="mb-5">
-                    <h3 class="fw-semibold mb-4">Poses by Benefit</h3>
+                    <h3 class="fw-semibold mb-4" data-aos="fade-right">Poses by Benefit</h3>
                      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                        <div class="col">
-                           <div class="card h-100">
-                                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1999&auto=format&fit=crop" class="card-img-top" alt="Woman in a calming yoga pose for stress relief" style="height: 200px; object-fit: cover;" onerror="this.onerror=null;this.src='https://placehold.co/400x250/F687B3/2D3748?text=Stress+Relief';">
-                                <div class="card-body">
-                                    <h4 class="card-title fw-bold">Stress Relief</h4>
-                                    <p class="card-text text-secondary">Calming poses to reduce stress and anxiety, promoting a sense of peace.</p>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="col">
-                           <div class="card h-100">
-                                <img src="https://images.unsplash.com/photo-1470468969717-61d5d54fd036?q=80&w=2070&auto=format&fit=crop" class="card-img-top" alt="Energetic person jumping outdoors" style="height: 200px; object-fit: cover;" onerror="this.onerror=null;this.src='https://placehold.co/400x250/76E4F7/2D3748?text=Energy+Boost';">
-                                <div class="card-body">
-                                    <h4 class="card-title fw-bold">Energy Boost</h4>
-                                    <p class="card-text text-secondary">Invigorating movements to combat fatigue and increase your energy levels naturally.</p>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="col">
-                           <div class="card h-100">
-                                <img src="https://images.unsplash.com/photo-1531384370597-8590413be50a?q=80&w=2070&auto=format&fit=crop" class="card-img-top" alt="Person doing a relaxing stretch for improved sleep" style="height: 200px; object-fit: cover;" onerror="this.onerror=null;this.src='https://placehold.co/400x250/D6BCFA/2D3748?text=Improved+Sleep';">
-                                <div class="card-body">
-                                    <h4 class="card-title fw-bold">Improved Sleep</h4>
-                                    <p class="card-text text-secondary">Relaxing postures to prepare your body and mind for a restful night's sleep.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="col" data-aos="fade-up" data-aos-delay="100"><div class="card h-100"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1999&auto=format&fit=crop" class="card-img-top" alt="Stress Relief" style="height: 200px; object-fit: cover;"><div class="card-body"><h4 class="card-title fw-bold">Stress Relief</h4><p class="card-text text-secondary">Calming poses to reduce stress and anxiety.</p></div></div></div>
+                        <div class="col" data-aos="fade-up" data-aos-delay="200"><div class="card h-100"><img src="https://images.unsplash.com/photo-1470468969717-61d5d54fd036?q=80&w=2070&auto=format&fit=crop" class="card-img-top" alt="Energy Boost" style="height: 200px; object-fit: cover;"><div class="card-body"><h4 class="card-title fw-bold">Energy Boost</h4><p class="card-text text-secondary">Invigorating movements to combat fatigue.</p></div></div></div>
+                        <div class="col" data-aos="fade-up" data-aos-delay="300"><div class="card h-100"><img src="https://images.unsplash.com/photo-1531384370597-8590413be50a?q=80&w=2070&auto=format&fit=crop" class="card-img-top" alt="Improved Sleep" style="height: 200px; object-fit: cover;"><div class="card-body"><h4 class="card-title fw-bold">Improved Sleep</h4><p class="card-text text-secondary">Relaxing postures for a restful night.</p></div></div></div>
                     </div>
                 </div>
-                
-                <!-- Poses by Anatomy & General -->
-                 <div class="row g-5">
-                    <div id="poses-anatomy" class="col-md-6">
-                        <h3 class="fw-semibold mb-4">Poses by Anatomy</h3>
-                        <ul class="list-group">
-                            <li class="list-group-item">Core Strengthening</li>
-                            <li class="list-group-item">Leg Toning</li>
-                            <li class="list-group-item">Arm & Shoulder Workouts</li>
-                            <li class="list-group-item">Back Health & Posture</li>
-                        </ul>
-                    </div>
-                    <div id="poses-general" class="col-md-6">
-                        <h3 class="fw-semibold mb-4">General Poses</h3>
-                        <ul class="list-group">
-                            <li class="list-group-item">Beginner Warm-ups</li>
-                            <li class="list-group-item">Cool-down Stretches</li>
-                            <li class="list-group-item">Full Body Routines</li>
-                            <li class="list-group-item">Low-Impact Options</li>
-                        </ul>
-                    </div>
-                 </div>
+                <div class="row g-5">
+                    <div id="poses-anatomy" class="col-md-6" data-aos="fade-right"><h3 class="fw-semibold mb-4">Poses by Anatomy</h3><ul class="list-group list-group-flush"><li class="list-group-item">Core Strengthening</li><li class="list-group-item">Leg Toning</li><li class="list-group-item">Arm & Shoulder Workouts</li><li class="list-group-item">Back Health & Posture</li></ul></div>
+                    <div id="poses-general" class="col-md-6" data-aos="fade-left"><h3 class="fw-semibold mb-4">General Poses</h3><ul class="list-group list-group-flush"><li class="list-group-item">Beginner Warm-ups</li><li class="list-group-item">Cool-down Stretches</li><li class="list-group-item">Full Body Routines</li><li class="list-group-item">Low-Impact Options</li></ul></div>
+                </div>
             </div>
         </section>
 
         <!-- Courses Section -->
-        <section id="courses" class="py-5 bg-white">
+        <section id="courses" class="py-5 bg-body-secondary">
             <div class="container px-4">
-                <div class="text-center mb-5">
-                    <h2 class="fw-bold">Recommended Courses</h2>
-                    <p class="text-secondary">Targeted programs for specific health concerns.</p>
-                </div>
+                <div class="text-center mb-5" data-aos="fade-up"><h2 class="fw-bold">Recommended Courses</h2><p class="text-secondary fs-5">Targeted programs for specific health concerns.</p></div>
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop" class="card-img-top" alt="Healthy food for diabetes management" style="height: 200px; object-fit: cover;" onerror="this.onerror=null;this.src='https://placehold.co/400x250/F6AD55/2D3748?text=Diabetes+Management';">
-                            <div class="card-body">
-                                <h4 class="card-title fw-bold">For Diabetes Management</h4>
-                                <p class="card-text text-secondary">A course focusing on exercises that help regulate blood sugar levels and improve insulin sensitivity.</p>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="col">
-                        <div class="card h-100">
-                             <img src="https://images.unsplash.com/photo-1511309392211-5079a4a75870?q=80&w=2070&auto=format&fit=crop" class="card-img-top" alt="Person running for cardiovascular health" style="height: 200px; object-fit: cover;" onerror="this.onerror=null;this.src='https://placehold.co/400x250/F687B3/2D3748?text=Cardio+Health';">
-                            <div class="card-body">
-                                <h4 class="card-title fw-bold">For Cardiovascular Health</h4>
-                                <p class="card-text text-secondary">Strengthen your heart and improve circulation with this specially designed aerobic program.</p>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="col">
-                        <div class="card h-100">
-                            <img src="https://images.unsplash.com/photo-1591291621265-b3a693b89b8a?q=80&w=2070&auto=format&fit=crop" class="card-img-top" alt="Calm scene for stress and anxiety relief" style="height: 200px; object-fit: cover;" onerror="this.onerror=null;this.src='https://placehold.co/400x250/68D391/2D3748?text=Stress+Relief';">
-                            <div class="card-body">
-                                <h4 class="card-title fw-bold">For Stress & Anxiety</h4>
-                                <p class="card-text text-secondary">Combine gentle aerobics with mindfulness techniques to calm your nervous system.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="col" data-aos="fade-up" data-aos-delay="100"><div class="card h-100"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop" class="card-img-top" alt="Diabetes Management" style="height: 200px; object-fit: cover;"><div class="card-body"><h4 class="card-title fw-bold">For Diabetes Management</h4><p class="card-text text-secondary">A course focusing on exercises that help regulate blood sugar levels.</p></div></div></div>
+                    <div class="col" data-aos="fade-up" data-aos-delay="200"><div class="card h-100"><img src="https://images.unsplash.com/photo-1511309392211-5079a4a75870?q=80&w=2070&auto=format&fit=crop" class="card-img-top" alt="Cardiovascular Health" style="height: 200px; object-fit: cover;"><div class="card-body"><h4 class="card-title fw-bold">For Cardiovascular Health</h4><p class="card-text text-secondary">Strengthen your heart and improve circulation with this program.</p></div></div></div>
+                    <div class="col" data-aos="fade-up" data-aos-delay="300"><div class="card h-100"><img src="https://images.unsplash.com/photo-1591291621265-b3a693b89b8a?q=80&w=2070&auto=format&fit=crop" class="card-img-top" alt="Stress & Anxiety" style="height: 200px; object-fit: cover;"><div class="card-body"><h4 class="card-title fw-bold">For Stress & Anxiety</h4><p class="card-text text-secondary">Combine gentle aerobics with mindfulness to calm your nervous system.</p></div></div></div>
                 </div>
             </div>
         </section>
@@ -255,22 +294,15 @@
         <!-- Meditation Section -->
         <section id="meditation" class="py-5">
             <div class="container px-4">
-                <div class="text-center mb-5">
-                    <h2 class="fw-bold">The Power of Meditation</h2>
-                    <p class="text-secondary">Still your mind, find your center.</p>
-                </div>
+                <div class="text-center mb-5" data-aos="fade-up"><h2 class="fw-bold">The Power of Meditation</h2><p class="text-secondary fs-5">Still your mind, find your center.</p></div>
                 <div class="row align-items-center g-5">
-                    <div class="col-md-6">
-                        <img src="https://images.unsplash.com/photo-1528716321680-815a8cdb8cbe?q=80&w=1974&auto=format&fit=crop" alt="Woman meditating peacefully outdoors" class="img-fluid rounded shadow-lg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/A0AEC0/4A5568?text=Meditation';">
-                    </div>
-                    <div class="col-md-6">
-                        <h3 class="fw-semibold mb-3">Benefits of Daily Practice</h3>
-                        <p class="text-secondary mb-4">Meditation is a practice where an individual uses a technique – such as mindfulness, or focusing the mind on a particular object, thought, or activity – to train attention and awareness, and achieve a mentally clear and emotionally calm and stable state.</p>
-                        <ul class="list-unstyled text-secondary">
-                            <li class="d-flex align-items-start mb-2"><svg class="flex-shrink-0 me-2 text-teal" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Reduces Stress & Anxiety</span></li>
-                            <li class="d-flex align-items-start mb-2"><svg class="flex-shrink-0 me-2 text-teal" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Enhances Self-Awareness</span></li>
-                            <li class="d-flex align-items-start mb-2"><svg class="flex-shrink-0 me-2 text-teal" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Improves Concentration & Memory</span></li>
-                            <li class="d-flex align-items-start"><svg class="flex-shrink-0 me-2 text-teal" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Promotes Emotional Health</span></li>
+                    <div class="col-md-6" data-aos="fade-right"><img src="https://images.unsplash.com/photo-1528716321680-815a8cdb8cbe?q=80&w=1974&auto=format&fit=crop" alt="Woman meditating peacefully outdoors" class="img-fluid rounded-3 shadow-lg"></div>
+                    <div class="col-md-6" data-aos="fade-left"><h3 class="fw-semibold mb-3">Benefits of Daily Practice</h3><p class="text-secondary mb-4">Meditation trains attention and awareness to achieve a mentally clear and emotionally calm state.</p>
+                        <ul class="list-unstyled">
+                            <li class="d-flex align-items-start mb-2"><i class="bi bi-check-circle-fill text-primary me-2 fs-5"></i><span>Reduces Stress & Anxiety</span></li>
+                            <li class="d-flex align-items-start mb-2"><i class="bi bi-check-circle-fill text-primary me-2 fs-5"></i><span>Enhances Self-Awareness</span></li>
+                            <li class="d-flex align-items-start mb-2"><i class="bi bi-check-circle-fill text-primary me-2 fs-5"></i><span>Improves Concentration</span></li>
+                            <li class="d-flex align-items-start"><i class="bi bi-check-circle-fill text-primary me-2 fs-5"></i><span>Promotes Emotional Health</span></li>
                         </ul>
                     </div>
                 </div>
@@ -278,25 +310,98 @@
         </section>
         
         <!-- Videos Section -->
-        <section id="videos" class="py-5 bg-white">
+        <section id="videos" class="py-5 bg-body-secondary">
             <div class="container px-4">
-                 <div class="text-center mb-5">
-                    <h2 class="fw-bold">Illustrative Videos</h2>
-                    <p class="text-secondary">Follow along with our guided sessions.</p>
-                </div>
+                 <div class="text-center mb-5" data-aos="fade-up"><h2 class="fw-bold">Illustrative Videos</h2><p class="text-secondary fs-5">Follow along with our guided sessions.</p></div>
                 <div class="row row-cols-1 row-cols-md-2 g-4">
-                    <div class="col">
-                        <h4 class="fw-semibold fs-5 mb-3">10-Minute Morning Aerobics</h4>
-                        <div class="ratio ratio-16x9 rounded overflow-hidden shadow-sm">
-                             <iframe src="https://www.youtube.com/embed/gC_L9qAHVJ8?si=eYhK0b5Lq2-qR3_J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="col" data-aos="zoom-in"><h4 class="fw-semibold fs-5 mb-3">10-Minute Morning Aerobics</h4><div class="ratio ratio-16x9 rounded overflow-hidden shadow-sm"><iframe src="https://www.youtube.com/embed/gC_L9qAHVJ8?si=eYhK0b5Lq2-qR3_J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+                    <div class="col" data-aos="zoom-in" data-aos-delay="200"><h4 class="fw-semibold fs-5 mb-3">5-Minute Guided Meditation</h4><div class="ratio ratio-16x9 rounded overflow-hidden shadow-sm"><iframe src="https://www.youtube.com/embed/inpok4MKVLM?si=0u_g2Z-bF6B4Q7L3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instructors Section -->
+        <section id="instructors" class="py-5">
+            <div class="container px-4">
+                <div class="text-center mb-5" data-aos="fade-up"><h2 class="fw-bold">Meet Our Instructors</h2><p class="text-secondary fs-5">Learn from passionate and experienced professionals.</p></div>
+                <div class="row justify-content-center g-4">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card text-center p-3 h-100"><img src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?q=80&w=800&auto=format&fit=crop" class="rounded-circle mx-auto mb-3" alt="Instructor Jane Doe" style="width: 150px; height: 150px; object-fit: cover;"><h4 class="fw-bold mb-1">Jane Doe</h4><p class="text-primary mb-2">Cardio Specialist</p><p class="card-text text-secondary">With over 10 years of experience, Jane brings unparalleled energy to every class, helping you push your limits.</p></div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card text-center p-3 h-100"><img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=800&auto=format&fit=crop" class="rounded-circle mx-auto mb-3" alt="Instructor John Smith" style="width: 150px; height: 150px; object-fit: cover;"><h4 class="fw-bold mb-1">John Smith</h4><p class="text-primary mb-2">Mindfulness Guide</p><p class="card-text text-secondary">John is a certified meditation coach dedicated to helping you find calm and focus in a busy world.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-5 bg-body-secondary">
+            <div class="container px-4">
+                <div class="text-center mb-5" data-aos="fade-up"><h2 class="fw-bold">What Our Members Say</h2><p class="text-secondary fs-5">Real stories from our amazing community.</p></div>
+                <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-bs-ride="carousel" data-aos="fade-up" data-aos-delay="100">
+                    <div class="carousel-inner text-center">
+                        <div class="carousel-item active">
+                            <div class="testimonial-card">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" class="rounded-circle testimonial-img mb-4" alt="Testimonial User 1">
+                                <div class="star-rating mb-3">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="fs-5 fst-italic text-secondary">"This website changed my life! The variety of classes and the supportive instructors are incredible. I've never felt healthier or happier."</p>
+                                <p class="fw-bold mt-4 mb-0">- Sarah L.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="testimonial-card">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" class="rounded-circle testimonial-img mb-4" alt="Testimonial User 2">
+                                <div class="star-rating mb-3">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="fs-5 fst-italic text-secondary">"The meditation section is a lifesaver. After a stressful day at work, it's the perfect way to unwind and clear my head. Highly recommended!"</p>
+                                <p class="fw-bold mt-4 mb-0">- Michael B.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="testimonial-card">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" class="rounded-circle testimonial-img mb-4" alt="Testimonial User 3">
+                                <div class="star-rating mb-3">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="fs-5 fst-italic text-secondary">"I love the weekly schedule feature. It makes planning my workouts so easy. The courses are challenging but so rewarding."</p>
+                                <p class="fw-bold mt-4 mb-0">- Emily K.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <h4 class="fw-semibold fs-5 mb-3">5-Minute Guided Meditation</h4>
-                         <div class="ratio ratio-16x9 rounded overflow-hidden shadow-sm">
-                             <iframe src="https://www.youtube.com/embed/inpok4MKVLM?si=0u_g2Z-bF6B4Q7L3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                    </div>
+                    <div class="carousel-indicators"><button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button><button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button><button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weekly Schedule Section -->
+        <section id="schedule" class="py-5">
+            <div class="container px-4">
+                <div class="text-center mb-5" data-aos="fade-up"><h2 class="fw-bold">Weekly Class Schedule</h2><p class="text-secondary fs-5">Plan your week of wellness with us.</p></div>
+                <div class="table-responsive" data-aos="fade-up">
+                    <table class="table table-bordered text-center">
+                        <thead class="bg-body-tertiary"><tr><th scope="col">Time</th><th scope="col">Monday</th><th scope="col">Tuesday</th><th scope="col">Wednesday</th><th scope="col">Thursday</th><th scope="col">Friday</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">9:00 AM</th><td>Cardio Blast</td><td>Flexibility Flow</td><td>Cardio Blast</td><td>Strength & Sculpt</td><td>Full Body Routine</td></tr>
+                            <tr><th scope="row">11:00 AM</th><td>Mindful Meditation</td><td>Beginner Warm-up</td><td>Mindful Meditation</td><td>Low-Impact Aerobics</td><td>Mindful Meditation</td></tr>
+                            <tr><th scope="row">6:00 PM</th><td>Strength & Sculpt</td><td>Cardio Blast</td><td>Stress Relief Yoga</td><td>Cardio Blast</td><td>Flexibility Flow</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-5 bg-body-secondary">
+            <div class="container px-4">
+                <div class="text-center mb-5" data-aos="fade-up"><h2 class="fw-bold">Frequently Asked Questions</h2><p class="text-secondary fs-5">Have questions? We've got answers.</p></div>
+                <div class="accordion mx-auto" id="faqAccordion" style="max-width: 800px;" data-aos="fade-up">
+                    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">What should I wear to a class?</button></h2><div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body text-secondary">Wear comfortable, breathable athletic clothing that allows for a full range of motion. Good-quality training shoes are also essential for support during aerobic exercises.</div></div></div>
+                    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">I'm a complete beginner. Which class is right for me?</button></h2><div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-secondary">We recommend starting with our "Beginner Warm-ups" or "Low-Impact Options" classes. Our instructors are fantastic at providing modifications for all fitness levels. Don't hesitate to talk to an instructor before class!</div></div></div>
+                    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">What are the benefits of meditation?</button></h2><div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-secondary">Meditation offers numerous benefits, including reduced stress, improved focus, enhanced self-awareness, and better emotional regulation. Even a few minutes a day can make a significant difference in your overall well-being.</div></div></div>
                 </div>
             </div>
         </section>
@@ -304,31 +409,12 @@
         <!-- Books Section -->
         <section id="books" class="py-5">
             <div class="container px-4">
-                <div class="text-center mb-5">
-                    <h2 class="fw-bold">Related Books</h2>
-                    <p class="text-secondary">Expand your knowledge with these recommended readings.</p>
-                </div>
+                <div class="text-center mb-5" data-aos="fade-up"><h2 class="fw-bold">Related Books</h2><p class="text-secondary fs-5">Expand your knowledge with these readings.</p></div>
                  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
-                    <div class="col text-center">
-                        <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=600&h=900&auto=format&fit=crop" alt="Book Cover: The Aerobics Way" class="img-fluid rounded shadow mb-3" style="height: 300px; width: 100%; object-fit: cover;" onerror="this.onerror=null;this.src='https://placehold.co/200x300/14B8A6/FFFFFF?text=Book+Cover';">
-                        <h4 class="fw-semibold fs-6">The Aerobics Way</h4>
-                        <p class="text-secondary small">by Kenneth H. Cooper</p>
-                    </div>
-                    <div class="col text-center">
-                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=600&h=900&auto=format&fit=crop" alt="Book Cover: Mindfulness in Plain English" class="img-fluid rounded shadow mb-3" style="height: 300px; width: 100%; object-fit: cover;" onerror="this.onerror=null;this.src='https://placehold.co/200x300/4A5568/FFFFFF?text=Book+Cover';">
-                        <h4 class="fw-semibold fs-6">Mindfulness in Plain English</h4>
-                        <p class="text-secondary small">by Henepola Gunaratana</p>
-                    </div>
-                     <div class="col text-center">
-                        <img src="https://images.unsplash.com/photo-1550399105-c4db5fb85c18?q=80&w=600&h=900&auto=format&fit=crop" alt="Book Cover: The Body Keeps the Score" class="img-fluid rounded shadow mb-3" style="height: 300px; width: 100%; object-fit: cover;" onerror="this.onerror=null;this.src='https://placehold.co/200x300/14B8A6/FFFFFF?text=Book+Cover';">
-                        <h4 class="fw-semibold fs-6">The Body Keeps the Score</h4>
-                        <p class="text-secondary small">by Bessel van der Kolk</p>
-                    </div>
-                     <div class="col text-center">
-                        <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=600&h=900&auto=format&fit=crop" alt="Book Cover: Wherever You Go, There You Are" class="img-fluid rounded shadow mb-3" style="height: 300px; width: 100%; object-fit: cover;" onerror="this.onerror=null;this.src='https://placehold.co/200x300/4A5568/FFFFFF?text=Book+Cover';">
-                        <h4 class="fw-semibold fs-6">Wherever You Go, There You Are</h4>
-                        <p class="text-secondary small">by Jon Kabat-Zinn</p>
-                    </div>
+                    <div class="col text-center" data-aos="fade-up" data-aos-delay="100"><img src="https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=600&h=900&auto=format&fit=crop" alt="Book Cover" class="img-fluid rounded shadow-sm mb-3" style="height: 300px; width: 100%; object-fit: cover;"><h4 class="fw-semibold fs-6">The Aerobics Way</h4><p class="text-secondary small">by Kenneth H. Cooper</p></div>
+                    <div class="col text-center" data-aos="fade-up" data-aos-delay="200"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=600&h=900&auto=format&fit=crop" alt="Book Cover" class="img-fluid rounded shadow-sm mb-3" style="height: 300px; width: 100%; object-fit: cover;"><h4 class="fw-semibold fs-6">Mindfulness in Plain English</h4><p class="text-secondary small">by Henepola Gunaratana</p></div>
+                    <div class="col text-center" data-aos="fade-up" data-aos-delay="300"><img src="https://images.unsplash.com/photo-1550399105-c4db5fb85c18?q=80&w=600&h=900&auto=format&fit=crop" alt="Book Cover" class="img-fluid rounded shadow-sm mb-3" style="height: 300px; width: 100%; object-fit: cover;"><h4 class="fw-semibold fs-6">The Body Keeps the Score</h4><p class="text-secondary small">by Bessel van der Kolk</p></div>
+                    <div class="col text-center" data-aos="fade-up" data-aos-delay="400"><img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=600&h=900&auto=format&fit=crop" alt="Book Cover" class="img-fluid rounded shadow-sm mb-3" style="height: 300px; width: 100%; object-fit: cover;"><h4 class="fw-semibold fs-6">Wherever You Go...</h4><p class="text-secondary small">by Jon Kabat-Zinn</p></div>
                 </div>
             </div>
         </section>
@@ -336,25 +422,85 @@
 
     <!-- Footer -->
     <footer class="bg-dark text-white">
-        <div class="container py-4">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-                <p class="mb-3 mb-md-0">&copy; 2024 Healthy Mind. All Rights Reserved.</p>
-                <div class="d-flex">
-                    <a href="#" class="text-white-50 text-decoration-none me-3">Privacy Policy</a>
-                    <a href="#" class="text-white-50 text-decoration-none">Terms of Service</a>
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0"><h5 class="text-uppercase mb-4">Healthy Mind</h5><p class="text-white-50">Your journey to a balanced body and a clear mind starts here. Join our community and discover a healthier, happier you.</p></div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0"><h5 class="text-uppercase mb-4">Links</h5><ul class="list-unstyled mb-0"><li><a href="#poses" class="text-white-50 text-decoration-none">Poses</a></li><li><a href="#courses" class="text-white-50 text-decoration-none">Courses</a></li><li><a href="#schedule" class="text-white-50 text-decoration-none">Schedule</a></li><li><a href="#faq" class="text-white-50 text-decoration-none">FAQ</a></li></ul></div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0"><h5 class="text-uppercase mb-4">Contact</h5><ul class="list-unstyled mb-0"><li class="text-white-50">123 Wellness St, Karachi, PK</li><li class="text-white-50">info@healthymind.com</li><li class="text-white-50">+92 300 1234567</li></ul></div>
+                <div class="col-lg-3"><h5 class="text-uppercase mb-4">Follow Us</h5>
+                    <div>
+                        <a href="#" class="btn btn-outline-light btn-floating m-1 rounded-circle" role="button"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-floating m-1 rounded-circle" role="button"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-floating m-1 rounded-circle" role="button"><i class="bi bi-instagram"></i></a>
+                    </div>
                 </div>
             </div>
+            <hr class="my-4">
+            <div class="text-center text-white-50"><p>&copy; 2024 Healthy Mind. All Rights Reserved.</p></div>
         </div>
     </footer>
     
-    <!-- Bootstrap JS -->
+    <!-- Back to Top Button -->
+    <a id="backToTopBtn" href="#home" class="btn btn-primary btn-lg rounded-circle d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up"></i></a>
+    
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            // --- THEME TOGGLE LOGIC ---
+            const themeToggleBtn = $('#theme-toggle');
+            const sunIcon = '<i class="bi bi-sun-fill"></i>';
+            const moonIcon = '<i class="bi bi-moon-fill"></i>';
+
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    $('html').attr('data-bs-theme', 'dark');
+                    themeToggleBtn.html(moonIcon);
+                } else {
+                    $('html').attr('data-fs-theme', 'light');
+                    themeToggleBtn.html(sunIcon);
+                }
+            };
+
+            let savedTheme = localStorage.getItem('theme') || 'light';
+            applyTheme(savedTheme);
+
+            themeToggleBtn.on('click', function() {
+                let currentTheme = $('html').attr('data-bs-theme');
+                let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                localStorage.setItem('theme', newTheme);
+                applyTheme(newTheme);
+            });
+
+            // --- EXISTING SCRIPT LOGIC ---
+            AOS.init({ duration: 800, once: true, easing: 'ease-in-out' });
+
+            var backToTopBtn = $('#backToTopBtn');
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > 300) {
+                    backToTopBtn.fadeIn();
+                } else {
+                    backToTopBtn.fadeOut();
+                }
+            });
+
+            $('.counter').counterUp({ delay: 10, time: 1500 });
+            
+            // Fix for Bootstrap dropdowns not working on first click on mobile
+            $('.dropdown-toggle').on('click', function(e) {
+                if ($(window).width() < 992) {
+                    if ($(this).next('.dropdown-menu').is(':visible')) {
+                        window.location.href = $(this).attr('href');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-
 
