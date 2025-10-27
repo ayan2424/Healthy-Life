@@ -27,9 +27,9 @@ $(document).ready(function(){
     // Navbar transparency effect
     $(window).scroll(function() {
         if ($(this).scrollTop() > 50) {
-            $('.navbar').addClass('bg-light').removeClass('bg-transparent');
+            $('.navbar').addClass('scrolled');
         } else {
-            $('.navbar').removeClass('bg-light').addClass('bg-transparent');
+            $('.navbar').removeClass('scrolled');
         }
     });
 

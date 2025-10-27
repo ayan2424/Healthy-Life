@@ -25,13 +25,6 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-serif);
 }
 
-#particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-
 .navbar {
     transition: all 0.3s;
     background-color: transparent;
@@ -56,6 +49,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-link {
     position: relative;
     padding-bottom: 5px;
+    color: #fff;
 }
 
 .nav-link::after {
@@ -147,42 +141,37 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateX(35px);
 }
 
-.hero-section .carousel-item {
+.hero-section {
     height: 100vh;
-    background-size: cover;
-    background-position: center;
-    animation: ken-burns 20s infinite;
+    position: relative;
+    overflow: hidden;
 }
 
-.hero-section .carousel-caption {
+#hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
     top: 50%;
     transform: translateY(-50%);
-    bottom: auto;
+    color: #fff;
 }
 
 .hero-section .animated-text {
     animation: slide-in 1s forwards;
     opacity: 0;
-}
-
-.carousel-item:nth-child(2) .animated-text {
-    animation-delay: 0.5s;
-}
-
-.carousel-item:nth-child(3) .animated-text {
-    animation-delay: 1s;
-}
-
-@keyframes ken-burns {
-    0% {
-        background-size: 100% 100%;
-    }
-    50% {
-        background-size: 120% 120%;
-    }
-    100% {
-        background-size: 100% 100%;
-    }
 }
 
 @keyframes slide-in {

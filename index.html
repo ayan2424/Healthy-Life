@@ -9,133 +9,96 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <div id="particles-js"></div>
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="images/logo.png" alt="Healthy Mind Logo" width="120" class="d-inline-block align-text-top">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item dropdown mega-menu">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Poses
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <h5><i class="fas fa-shapes"></i> Poses by Type</h5>
-                                            <a class="dropdown-item" href="pages/poses.html?filter=type">Standing</a>
-                                            <a class="dropdown-item" href="pages/poses.html?filter=type">Seated</a>
-                                            <a class="dropdown-item" href="pages/poses.html?filter=type">Supine</a>
-                                            <a class="dropdown-item" href="pages/poses.html?filter=type">Prone</a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <h5><i class="fas fa-heartbeat"></i> Poses by Benefit</h5>
-                                            <a class="dropdown-item" href="pages/poses.html?filter=benefit">Flexibility</a>
-                                            <a class="dropdown-item" href="pages/poses.html?filter=benefit">Strength</a>
-                                            <a class="dropdown-item" href="pages/poses.html?filter=benefit">Balance</a>
-                                            <a class="dropdown-item" href="pages/poses.html?filter=benefit">Relaxation</a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <h5><i class="fas fa-universal-access"></i> Poses General</h5>
-                                            <a class="dropdown-item" href="pages/poses.html?filter=general">Beginner</a>
-                                            <a class="dropdown-item" href="pages/poses.html?filter=general">Intermediate</a>
-                                            <a class="dropdown-item" href="pages/poses.html?filter=general">Advanced</a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <h5><i class="fas fa-running"></i> Poses by Anatomy</h5>
-                                            <a class="dropdown-item" href="pages/poses.html?filter=anatomy">Core</a>
-                                            <a class="dropdown-item" href="pages/poses.html?filter=anatomy">Legs</a>
-                                            <a class="dropdown-item" href="pages/poses.html?filter=anatomy">Arms</a>
-                                            <a class="dropdown-item" href="pages/poses.html?filter=anatomy">Back</a>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <img src="images/logo.png" alt="Healthy Mind Logo" width="120" class="d-inline-block align-text-top">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item dropdown mega-menu">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Poses
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <h5><i class="fas fa-shapes"></i> Poses by Type</h5>
+                                                <a class="dropdown-item" href="pages/poses.html?filter=type">Standing</a>
+                                                <a class="dropdown-item" href="pages/poses.html?filter=type">Seated</a>
+                                                <a class="dropdown-item" href="pages/poses.html?filter=type">Supine</a>
+                                                <a class="dropdown-item" href="pages/poses.html?filter=type">Prone</a>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h5><i class="fas fa-heartbeat"></i> Poses by Benefit</h5>
+                                                <a class="dropdown-item" href="pages/poses.html?filter=benefit">Flexibility</a>
+                                                <a class="dropdown-item" href="pages/poses.html?filter=benefit">Strength</a>
+                                                <a class="dropdown-item" href="pages/poses.html?filter=benefit">Balance</a>
+                                                <a class="dropdown-item" href="pages/poses.html?filter=benefit">Relaxation</a>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h5><i class="fas fa-universal-access"></i> Poses General</h5>
+                                                <a class="dropdown-item" href="pages/poses.html?filter=general">Beginner</a>
+                                                <a class="dropdown-item" href="pages/poses.html?filter=general">Intermediate</a>
+                                                <a class="dropdown-item" href="pages/poses.html?filter=general">Advanced</a>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h5><i class="fas fa-running"></i> Poses by Anatomy</h5>
+                                                <a class="dropdown-item" href="pages/poses.html?filter=anatomy">Core</a>
+                                                <a class="dropdown-item" href="pages/poses.html?filter=anatomy">Legs</a>
+                                                <a class="dropdown-item" href="pages/poses.html?filter=anatomy">Arms</a>
+                                                <a class="dropdown-item" href="pages/poses.html?filter=anatomy">Back</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/courses.html">Courses</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/meditation.html">Meditation</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/videos.html">Videos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/books.html">Books</a>
-                        </li>
-                        <li class="nav-item">
-                            <div class="theme-switcher">
-                                <input type="checkbox" id="theme-toggle">
-                                <label for="theme-toggle" class="theme-toggle-label">
-                                    <i class="fas fa-sun"></i>
-                                    <i class="fas fa-moon"></i>
-                                </label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero-section">
-            <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active" style="background-image: url('images/hero-carousel/slide1.jpg');">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h1 class="display-4 animated-text">Embrace a Healthier You</h1>
-                            <p class="lead animated-text">Discover the power of aerobics to transform your body and mind.</p>
-                            <a href="pages/courses.html" class="btn btn-primary btn-lg animated-text">Explore Aerobics</a>
-                        </div>
-                    </div>
-                    <div class="carousel-item" style="background-image: url('images/hero-carousel/slide2.jpg');">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h1 class="display-4 animated-text">Find Your Inner Calm</h1>
-                            <p class="lead animated-text">Explore the world of meditation and unlock a more peaceful you.</p>
-                            <a href="pages/meditation.html" class="btn btn-primary btn-lg animated-text">Discover Meditation</a>
-                        </div>
-                    </div>
-                    <div class="carousel-item" style="background-image: url('images/hero-carousel/slide3.jpg');">
-                        <div class="carousel-caption d-none d-md-
-                        
-                        
-                        
-                        
-                        block">
-                            <h1 class="display-4 animated-text">Join Our Community</h1>
-                            <p class="lead animated-text">Connect with like-minded individuals and grow together.</p>
-                            <a href="#" class="btn btn-primary btn-lg animated-text">Connect Now</a>
-                        </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pages/courses.html">Courses</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pages/meditation.html">Meditation</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pages/videos.html">Videos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pages/books.html">Books</a>
+                            </li>
+                            <li class="nav-item">
+                                <div class="theme-switcher">
+                                    <input type="checkbox" id="theme-toggle">
+                                    <label for="theme-toggle" class="theme-toggle-label">
+                                        <i class="fas fa-sun"></i>
+                                        <i class="fas fa-moon"></i>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </section>
-
+            </nav>
+        </header>
+    
+        <main>
+            <section class="hero-section">
+                <video autoplay muted loop id="hero-video">
+                    <source src="https://www.pexels.com/video/a-woman-doing-yoga-on-a-mat-8245320/" type="video/mp4">
+                </video>
+                <div class="hero-content">
+                    <h1 class="display-4 animated-text">Find Your Inner Peace</h1>
+                    <p class="lead animated-text">A journey to a healthier body and mind.</p>
+                    <a href="pages/courses.html" class="btn btn-primary btn-lg animated-text">Get Started</a>
+                </div>
+            </section>
         <section class="pose-of-the-day-section py-5" style="background-image: url('images/pose-of-the-day-bg.jpg');">
             <div class="container">
                 <div class="row text-center">
