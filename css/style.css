@@ -72,14 +72,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mega-menu .dropdown-menu {
-    width: 100%;
-    left: 0;
+    min-width: 800px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
     padding: 30px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 1021; /* Ensure it's above other content */
 }
 
 .mega-menu .dropdown-menu h5 {
@@ -445,11 +447,16 @@ footer .btn-primary:hover {
   width: 50px;
   background: #ff5e14;
 }
+.footer-widget ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0;
+}
+
 .footer-widget ul li {
-  display: inline-block;
-  float: left;
-  width: 50%;
-  margin-bottom: 12px;
+    width: 50%;
+    margin-bottom: 12px;
 }
 .footer-widget ul li a:hover{
   color: #ff5e14;
