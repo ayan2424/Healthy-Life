@@ -622,3 +622,24 @@ body.dark-mode .mega-menu .dropdown-menu .dropdown-item {
     transform: scale(1.1);
     box-shadow: 0 5px 15px rgba(0, 123, 255, 0.5);
 }
+
+.community-section .community-avatars img {
+    transition: transform 0.3s ease;
+}
+
+.community-section .community-avatars img:hover {
+    transform: scale(1.1);
+}
+
+.blog-preview-section .card {
+    transition: all 0.3s ease;
+}
+
+.blog-preview-section .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.blog-preview-section .card-title {
+    font-family: var(--font-family-serif);
+}
