@@ -72,7 +72,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mega-menu .dropdown-menu {
-    width: max-content;
+    width: auto;
+    min-width: max-content;
     left: 50%;
     transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.7);
