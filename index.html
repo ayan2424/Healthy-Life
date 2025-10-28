@@ -89,13 +89,35 @@
     
         <main>
             <section class="hero-section">
-                <video autoplay muted loop id="hero-video">
-                    <source src="https://www.pexels.com/video/a-woman-doing-yoga-on-a-mat-8245320/" type="video/mp4">
-                </video>
-                <div class="hero-content">
-                    <h1 class="display-4 animated-text">Find Your Inner Peace</h1>
-                    <p class="lead animated-text">A journey to a healthier body and mind.</p>
-                    <a href="pages/courses.html" class="btn btn-primary btn-lg animated-text">Get Started</a>
+                <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" style="background-image: url('images/Untitled design (61).jpg')">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h1 class="display-4 animated-text">Embrace a Healthier You</h1>
+                                <p class="lead animated-text">Discover the transformative power of yoga and mindfulness.</p>
+                                <a href="pages/courses.html" class="btn btn-primary btn-lg animated-text">Start Your Journey</a>
+                            </div>
+                        </div>
+                        <div class="carousel-item" style="background-image: url('images/Untitled design (62).jpg')">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h1 class="display-4 animated-text">Find Your Balance</h1>
+                                <p class="lead animated-text">Strengthen your body, calm your mind, and uplift your spirit.</p>
+                                <a href="pages/poses.html" class="btn btn-outline-light btn-lg animated-text">Explore Poses</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </section>
         <section class="pose-of-the-day-section py-5" style="background-image: url('images/pose-of-the-day-bg.jpg');">
