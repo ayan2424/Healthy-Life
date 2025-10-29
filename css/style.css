@@ -1,19 +1,16 @@
 /* Custom CSS for Healthy Mind Website */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
     --primary-color: #007bff;
     --secondary-color: #6c757d;
     --light-color: #f8f9fa;
     --dark-color: #222;
-    --font-family-sans-serif: 'Roboto', sans-serif;
-    --font-family-serif: 'Playfair Display', serif;
-    --font-family-hero: 'Lato', sans-serif;
 }
 
 body {
-    font-family: var(--font-family-sans-serif);
+    font-family: 'Poppins', sans-serif;
     color: #333;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -24,7 +21,7 @@ body.dark-mode {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-family-serif);
+    font-family: 'Poppins', sans-serif;
 }
 
 .navbar {
@@ -217,13 +214,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-content-new h1 {
-    font-family: var(--font-family-hero);
+    font-family: 'Poppins', sans-serif;
     font-size: 4rem;
     font-weight: 700;
 }
 
 .hero-content-new p {
-    font-family: var(--font-family-hero);
+    font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
     color: #666;
 }
@@ -246,60 +243,68 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pose-of-the-day-section {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 100px 0;
+    padding: 80px 0;
 }
 
-.featured-poses-section .flip-card {
-    background-color: transparent;
-    width: 100%;
-    height: 300px;
-    perspective: 1000px;
+.pose-of-the-day-section .row {
+    margin-top: 40px;
 }
 
-.featured-poses-section .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-
-.featured-poses-section .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.featured-poses-section .flip-card-front,
-.featured-poses-section .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+.pose-of-the-day-section .img-fluid {
     border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.featured-poses-section .flip-card-front {
-    background-color: #bbb;
-    color: black;
+.quick-meditation-section {
+    padding: 80px 0;
 }
 
-.featured-poses-section .flip-card-back {
-    background-color: var(--primary-color);
-    color: white;
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.quick-meditation-section .row {
+    margin-top: 40px;
+}
+
+.quick-meditation-section .card {
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.featured-poses-section {
+    padding: 80px 0;
+}
+
+.featured-poses-section .row {
+    margin-top: 40px;
+}
+
+.featured-poses-section .card {
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.featured-poses-section .card:hover {
+    transform: translateY(-10px);
+}
+
+.testimonials-section {
+    padding: 80px 0;
+}
+
+.testimonials-section .row {
+    margin-top: 40px;
+}
+
+.did-you-know-section {
+    padding: 80px 0;
+}
+
+.did-you-know-section .row {
+    margin-top: 40px;
 }
 
 .did-you-know-section .card {
-    border: none;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
 }
 
@@ -307,26 +312,34 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-10px);
 }
 
-.testimonials-section .carousel-item {
-    padding: 40px;
+.quiz-section {
+    padding: 80px 0;
+}
+
+.quiz-section .row {
+    margin-top: 40px;
+}
+
+.quiz-section .img-fluid {
+    border-radius: 10px;
 }
 
 .community-section {
-    background-image: url('../images/community-bg.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 100px 0;
-    color: white;
+    padding: 80px 0;
 }
 
-.community-section .social-icons a {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    margin: 0 10px;
+.community-section .row {
+    margin-top: 40px;
+}
+
+.community-section .card {
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.community-section .card:hover {
+    transform: translateY(-10px);
 }
 
 footer {
@@ -663,8 +676,4 @@ body.dark-mode .mega-menu .dropdown-menu .dropdown-item {
 .blog-preview-section .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.blog-preview-section .card-title {
-    font-family: var(--font-family-serif);
 }
