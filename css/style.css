@@ -210,7 +210,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: #f4f4f4;
+    background-color: #fff;
 }
 
 .hero-content-new h1 {
@@ -794,4 +794,20 @@ body.dark-mode .mega-menu .dropdown-menu .dropdown-item {
 .featured-article-section .img-fluid {
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.cta-section {
+    background: linear-gradient(45deg, #007bff, #00c6ff);
+    color: #fff;
+}
+
+.cta-section .btn-primary {
+    background-color: #fff;
+    color: #007bff;
+    border-color: #fff;
+}
+
+.cta-section .btn-primary:hover {
+    background-color: #eee;
+    border-color: #eee;
 }
