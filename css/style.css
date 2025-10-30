@@ -677,3 +677,47 @@ body.dark-mode .mega-menu .dropdown-menu .dropdown-item {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
+
+.community-section-v2 {
+    padding: 80px 0;
+}
+
+.community-section-v2 .row {
+    margin-top: 40px;
+}
+
+.community-section-v2 .img-fluid {
+    transition: transform 0.3s ease;
+}
+
+.community-section-v2 .img-fluid:hover {
+    transform: scale(1.1);
+}
+
+.healthy-recipes-section {
+    padding: 80px 0;
+}
+
+.healthy-recipes-section .card {
+    transition: all 0.3s ease;
+}
+
+.healthy-recipes-section .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.did-you-know-section-v2 {
+    padding: 80px 0;
+}
+
+.did-you-know-section-v2 .fact-card {
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.did-you-know-section-v2 .fact-card:hover {
+    transform: translateY(-10px);
+    background-color: #f8f9fa;
+}
