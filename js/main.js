@@ -56,4 +56,30 @@ $(document).ready(function(){
             $('body').removeClass('dark-mode');
         }
     });
+
+    // Hero Carousel
+    const slides = document.querySelectorAll('.hero-slide');
+    const prevBtn = document.querySelector('.hero-control-prev');
+    const nextBtn = document.querySelector('.hero-control-next');
+    let currentSlide = 0;
+
+    function showSlide(n) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (n + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
+    }
+
+    setInterval(() => {
+        showSlide(currentSlide + 1);
+    }, 5000); // Change slide every 5 seconds
 });

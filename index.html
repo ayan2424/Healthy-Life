@@ -1,13 +1,16 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Healthy Mind</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+
     <script src="./js/header.js"></script>
     <script src="./js/footer.js"></script>
     
@@ -17,18 +20,46 @@
         <div id="header"></div>
     
         <main>
-            <section class="hero-section">
-			    <div class="container">
-			        <div class="row">
-			            <div class="col-lg-8 mx-auto text-center">
-			                <h1 class="display-3 fw-bold">Embrace a Healthier, Happier You</h1>
-			                <p class="lead my-4">Discover the transformative power of wellness. Start your journey with us today and unlock a life of balance, energy, and joy.</p>
-			                <a href="pages/courses.html" class="btn btn-primary btn-lg">Get Started</a>
-			            </div>
-			        </div>
-			    </div>
-			</section>
-<section class="pose-of-the-day-section py-5">
+            <section class="hero-carousel">
+                <div class="hero-slide active" style="background-image: url('https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <h1 class="display-3 fw-bold">Find Your Inner Peace</h1>
+                                <p class="lead my-4">Explore the world of yoga and meditation. Calm your mind, strengthen your body, and discover a new sense of well-being.</p>
+                                <a href="pages/poses.html" class="btn btn-primary btn-lg">Explore Poses</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-slide" style="background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <h1 class="display-3 fw-bold">Fuel Your Body, Nourish Your Soul</h1>
+                                <p class="lead my-4">Discover delicious and healthy recipes that will energize you and support your wellness goals.</p>
+                                <a href="#" class="btn btn-primary btn-lg">Get Recipes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-slide" style="background-image: url('https://images.pexels.com/photos/3822145/pexels-photo-3822145.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <h1 class="display-3 fw-bold">Join Our Vibrant Community</h1>
+                                <p class="lead my-4">Connect with like-minded people, share your journey, and find the support you need to thrive.</p>
+                                <a href="#" class="btn btn-primary btn-lg">Join Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-controls">
+                    <button class="hero-control-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="hero-control-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </section>
+        <section class="pose-of-the-day-section py-5">
     <div class="container">
         <div class="row text-center">
             <div class="col-md-12">
@@ -52,7 +83,7 @@
             </div>
         </div>
     </div>
-</section>
+        </section>
 
 <section class="quick-meditation-section py-5">
     <div class="container">
