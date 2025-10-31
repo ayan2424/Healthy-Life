@@ -177,7 +177,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-section {
-    background: url('https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+    background: url('./images/hero.jpeg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     align-items: center;
