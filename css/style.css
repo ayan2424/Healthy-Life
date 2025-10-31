@@ -207,32 +207,27 @@ h1, h2, h3, h4, h5, h6 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.hero-controls {
+.hero-pagination {
     position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
 }
 
-.hero-control-prev,
-.hero-control-next {
-    background: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: #fff;
-    font-size: 2rem;
-    padding: 10px 15px;
+.hero-pagination-dot {
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 0 8px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.hero-control-prev:hover,
-.hero-control-next:hover {
-    background: rgba(0, 0, 0, 0.8);
+.hero-pagination-dot.active {
+    background: #fff;
+    transform: scale(1.2);
 }
 
 
